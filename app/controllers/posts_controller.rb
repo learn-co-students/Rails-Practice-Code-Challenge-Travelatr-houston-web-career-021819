@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def new
     @post = Post.new
     @bloggers = Blogger.all
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    @post.likes += 1
+    @post.likes = @post.post_likes + 1
     @post.save
     render :show
   end
