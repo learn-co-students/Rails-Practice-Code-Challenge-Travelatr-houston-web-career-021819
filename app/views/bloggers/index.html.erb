@@ -1,0 +1,15 @@
+<h1>Bloggers</h1>
+  <ul>
+    <%@bloggers.each do |blogger|%>
+      <li>
+          <%= link_to blogger.name, blogger_path(blogger) %>
+            <ul>
+              <li>
+                  Age: <%= blogger.age %><br>
+                  Bio: <%= blogger.bio %>
+              </li>
+            </ul>
+      </li>
+      <br>
+      <%end%>
+  </ul>

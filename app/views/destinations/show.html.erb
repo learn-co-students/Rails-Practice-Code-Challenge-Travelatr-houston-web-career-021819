@@ -1,0 +1,32 @@
+<h1><%=@destination.name%></h1>
+
+  <ul>
+      <li>
+          <%= @destination.country %>
+            <ul>
+              <li>
+                  <% if @destination.featured_post == nil%>
+                  Featured post: 
+                  <%= "This desctination has no posts." %><br>
+                  <% else%>
+                  <%= link_to @destination.featured_post.title, post_path(@destination.featured_post)%><br>
+                  <%end%>
+                  Average blogger age: <%= @destination.average_age %>
+
+
+              </li>
+            </ul>
+      </li>
+      <br>
+  </ul>
+
+  <ul>
+    <%@destination.most_recent.each do |post|%>
+    <li>
+        Blogger: <%= link_to post.blogger.name, blogger_path(post.blogger)%><br>
+      </li>
+      <li>
+        Content: <%= post.content %><br>
+      </li>
+      <%end%>
+  </ul>

@@ -1,0 +1,20 @@
+<h1>Posts</h1>
+  <ul>
+    <%@posts.each do |post|%>
+      <li>
+          <%= link_to post.title, post_path(post) %>
+            <ul>
+              <li>
+                  Blogger: <%= post.blogger.name%><br>
+                  Destination <%= post.destination.name%><br>
+                  Content: <% post.content.each do |item| %><br>
+                            <%= item %>
+                            <%end%>
+                  Likes: <%= post.likes %><br>
+                  
+              </li>
+            </ul>
+      </li>
+      <br>
+      <%end%>
+  </ul>
