@@ -1,0 +1,14 @@
+<h1>Create a Blogger Profile!</h1>
+<%= form_for Blogger.new do |f| %>
+    <%=f.label :name %><br>
+    <%=f.text_field :name %><br>
+    <%=f.label :age %><br>
+    <%=f.text_field :age %><br>
+    <%=f.label :bio %><br>
+    <%=f.text_area :bio, size:"100x10" %><br><br>
+    <%=f.submit%><br>
+<% end %>
+
+<p>
+    <%= link_to 'Back to Home Page', posts_path %>
+</p>

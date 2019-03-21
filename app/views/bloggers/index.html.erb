@@ -1,0 +1,15 @@
+<h1>Bloggers Index</h1>
+
+<tbody>
+    <%@bloggers.each do |b|%>
+        <tr> <%= link_to b.name, blogger_path(b) %> </tr><br>
+            # To be edited
+    <%end%>
+</tbody>
+
+
+<h3><%= link_to 'Create a Blogger Profile', new_blogger_path %></h3>
+
+<p>
+    <%= link_to 'Back to Home Page', posts_path %>
+</p>
