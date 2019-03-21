@@ -1,0 +1,5 @@
+<ul>
+  <% @destinations.sorted.each do |d| %>
+    <li><%= link_to "#{d.country}, #{d.name}", destination_path(d) %></li>
+  <% end %>
+</ul>

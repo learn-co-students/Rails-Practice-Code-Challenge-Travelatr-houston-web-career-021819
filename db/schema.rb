@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20180815094403) do
     t.integer "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["blogger_id"], name: "index_posts_on_blogger_id"
+    t.index ["destination_id"], name: "index_posts_on_destination_id"
   end
 
 end

@@ -1,0 +1,21 @@
+<h1><%= @blogger.name %></h1>
+
+<p><%= @blogger.bio %></p>
+
+<h4><%= "#{@blogger.name} is #{@blogger.age} years old." %></h4>
+
+<h2><%= "#{@blogger.name}'s posts have a total of #{@my_posts.map{|p| p.post_likes}.inject(:+)} likes!" %></h2>
+
+<h3>Featured Post: </h3>
+<% if @my_posts != []%>
+<%= link_to @blogger.featured_post.title_and_likes, post_path(@blogger.featured_post) %>
+<% else %>
+<%= link_to "Start your first post now!", new_post_path %>
+<% end %>
+
+<h4><%= "#{@blogger.name}'s favorite destinations:" %></h4>
+  <ol>
+    <% @blogger.most_written_about_destinations.each do |d| %>
+      <li><%= "#{d[1]} posts about #{d[0]}" %></li>
+    <% end %>
+  </ol>

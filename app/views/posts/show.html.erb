@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+
+<h4><%= link_to "This post was written by #{@post.blogger.name}", blogger_path(@post.blogger) %></h4>
+<h4><%= link_to "Other posts about #{@post.destination.location}", destination_path(@post.destination) %></h4>
+
+<div><%= "This post has #{@post.post_likes} likes, click here to add a like:" %>
+  <form method="post" action="/posts/<%= @post.id %>/like">
+    <br>
+    <input type="submit" value="Like">
+  </form>
+<div>
