@@ -4,8 +4,8 @@
   <%= f.label :content %><br>
   <%= f.text_area :content %><br>
   <%= f.label :select_blogger %><br>
-  <%= f.select :blogger_id, @bloggers.map{|b| [b.name, b.id]} %><br>
+  <%= f.collection_select :blogger_id, @bloggers, :id, :name %><br>
   <%= f.label :select_destination %><br>
-  <%= f.select :destination_id, @destinations.map{|d| [d.location, d.id]} %><br><br>
+  <%= f.collection_select :destination_id, @destinations, :id, :location %><br><br>
   <%= f.submit "Submit Post" %>
 <% end %>
