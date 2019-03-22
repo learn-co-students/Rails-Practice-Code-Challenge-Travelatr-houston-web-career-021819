@@ -1,0 +1,26 @@
+<h1><%= @destination.name%> <%= @destination.country%></h1>
+    
+<h2>The most recent 5 posts written about this destination:</h2>
+<% five_posts = @destination.posts.last(5) %>
+<% five_posts.each do | post |%>
+    <p><%= link_to "#{post.title}", post_path(post) %>
+<% end %>
+
+<h2>Feature Post: the post with most likes</h2>
+<% feature_post = @destination.posts.max_by(&:likes) %>
+<% if feature_post%>
+    <%= link_to "#{feature_post.title}", post_path(feature_post) %></h3>
+<% else%>
+    <%= "no feature post yet."%>
+<% end %>
+
+
+<h3>Average age of all unique bloggers: 
+<% age_arr = @destination.bloggers.uniq.map { | blogger | blogger.age.to_i }%>
+<% avg_age = age_arr.inject {|sum, x| sum + x}.to_f / age_arr.size %>
+<p><% if @destination.posts == [] %>
+    <%= "Nobody has ever written about this place."%>
+<% else %>
+    <%= avg_age %>
+<%end%>
+</h3>

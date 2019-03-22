@@ -1,0 +1,10 @@
+<h1>Edit Current Post</h1>
+
+<%= form_for @post do |f| %>
+    <p>Title: <%= f.text_field :title %> 
+    <p>Content: <%= f.text_area :content %> 
+    <p>Blogger: <%= f.collection_select :blogger_id, Blogger.all, :id, :name%>
+    <p>Destination: <%= f.collection_select :destination_id, Destination.all, :id, :name%>
+
+    <p><%= f.submit %> 
+<%end%>
