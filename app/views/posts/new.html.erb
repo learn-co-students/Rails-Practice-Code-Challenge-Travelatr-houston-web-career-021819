@@ -1,0 +1,17 @@
+<h1>Create a Post</h1> 
+<%= form_for(@post) do |f| %>  
+<label>Post title:</label><br> 
+<%= f.text_field :title %><br> 
+ 
+<label>Destination</label><br> 
+<%= f.collection_select(:destination_id, Destination.all, :id, :name) %><br> 
+
+<label>Author</label><br> 
+<%= f.collection_select(:blogger_id, Blogger.all, :id, :name) %><br> 
+
+<label>Post Content</label><br> 
+<%= f.text_area :content %><br> 
+
+
+<%= f.submit %>
+<% end %>     
