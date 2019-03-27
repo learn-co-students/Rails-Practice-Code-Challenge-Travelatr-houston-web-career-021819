@@ -1,0 +1,14 @@
+<h1>Title: <%=@post.title %></h1>
+
+<h1>Content: </h1>
+<p><%=@post.content%>
+<h2>Likes: <%=@post.likes%></h2>
+
+<h2><%= link_to "Author", blogger_path(@post.blogger)%></h2>
+<h2><%= link_to "Destination", destination_path(@post.destination)%></h2>
+
+<h2>Show your likes!</h2>
+<%= form_with(method: 'patch', url: "/posts/#{@post.id}/add_likes") do |f|%>
+    <%= f.submit "Like"%>
+<%end%>
+

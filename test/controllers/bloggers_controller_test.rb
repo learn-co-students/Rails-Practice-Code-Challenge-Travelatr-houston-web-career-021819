@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BloggerTest < ActiveSupport::TestCase
+class BloggersControllerTest < ActionDispatch::IntegrationTest
   test "the truth" do
     assert true
   end

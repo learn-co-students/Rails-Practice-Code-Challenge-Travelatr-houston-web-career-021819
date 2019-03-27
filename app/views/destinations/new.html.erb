@@ -1,0 +1,10 @@
+<h1>Enter A New Destination</h1>
+<%= form_for @destination do |f| %>
+    <% if @destination.errors.any? %>
+        <%= @destination.errors.full_messages %>
+    <% end %>
+    <li>Name: <%= f.text_field :name %></li>
+    <li>Country: <%= f.text_area :country %></li>
+
+    <li><%= f.submit %></li> 
+<%end%>

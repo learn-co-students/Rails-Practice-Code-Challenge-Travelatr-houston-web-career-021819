@@ -1,0 +1,37 @@
+<h1>Name:<%= @blogger.name%></h1>
+<h2>Age:<%= @blogger.age%></h2>
+<h2>Bio:</h2> 
+<li><%= @blogger.bio%></li>
+
+<h3>All posts written by this blogger:</h3>
+<ul>
+<% @blogger.posts.each do | post |%>
+    <li><%= link_to "#{post.title}", post_path(post)%></li>
+    <li><%= "Destination: #{post.destination.name}"%></li>
+<%end%>
+</ul>
+<h3>Total likes on on all of that blogger's posts: <%= @sum_likes%></h3>
+
+
+<h3>Feature Post: </h3>
+<ul>
+<% if @feature_post%>
+    <%= link_to "#{@feature_post.title}", post_path(@feature_post) %></h3>
+<% else%>
+    <%= "no feature post yet."%>
+<% end %>
+</ul>
+
+<h3>Top 5 most written about destinations:</h3>
+<ul>
+    <% destinations_arr = @blogger.destinations.uniq %>
+    <% sorted_destinations = destinations_arr.sort_by{ | destination | destination.posts.length}.reverse%>
+    <% top_5_destinations = sorted_destinations.first(5)%>
+    <%  top_5_destinations.each do | destination |%>
+        <li><%=link_to "#{destination.name}",destination_path(destination)%></li>
+    <% end %>
+</ul>
+
+
+<p><%= link_to "Edit the Blogger info", edit_blogger_path(@blogger) %></p>
+<p><%= link_to "Delete the Blogger", blogger_path(@blogger), :data => {:confirm => "You sure?",:method => "delete"} %></p>
