@@ -1,0 +1,20 @@
+<h1>Profile</h1>
+<h2>Name: <%= @blogger.name %> </h2>
+<h3>Age: <%= @blogger.age %> </h3> 
+<h3>Bio: <%= @blogger.bio %> </h3>
+
+<h3>My Posts</h3>
+<% @blogger.posts.each do |post| %>
+ <p>Title: <%= post.title %> </p>
+ <p>Number of likes: <%= post.likes %> </p>
+<% end %>
+
+<h3>Featuerd Post</h3>
+  <p><%= link_to @feature_post.title, post_path(@feature_post) %></p>
+
+<h3>Top 5 Destinations</h3>
+<p><% @top_destinations.each do |destination| %></p>
+  <li><%= destination %></li>
+<% end %>
+ 
+  
