@@ -1,0 +1,27 @@
+<h1><%=@post.title%></h1>
+
+  <ul>
+      <li>
+            <ul>
+              <li>
+                  Blogger: <%= link_to @post.blogger.name, blogger_path(@post.blogger)%><br>
+                </li>
+                <li>
+                  Destination <%= link_to @post.destination.name, destination_path(@post.destination)%><br>
+                </li>
+                <li>
+                  Content: <%= @post.content %><br>
+                  Likes: <%= @post.likes %><br>
+                </li>
+                <li>
+                  <form method="POST" action="/posts/<%= @post.id %>/like">
+                      <input type="hidden" name="_method" value="PATCH" />
+                      <input type="submit" value="Like!"/>
+                  </form>
+              </li>
+            </ul>
+      </li>
+      <br>
+  </ul>
+
+  
