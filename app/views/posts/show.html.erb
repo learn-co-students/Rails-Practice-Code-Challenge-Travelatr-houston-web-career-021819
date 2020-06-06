@@ -1,0 +1,27 @@
+<h1><%=@post.title%></h1>
+
+<h2>Author: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %></h2>
+<h2>Destination: <%= link_to @post.destination.readable_name, destination_path(@post.destination) %></h2>
+<a><%= link_to '<button type="button">Edit This Post</button>'.html_safe, edit_post_path %></a>
+<p>
+    <%@post.content.split(",").map do |pg|%>
+        <br><%=pg%><br>
+    <%end%>
+</p>
+
+<p>
+    <br>
+    <%="This post has #{pluralize(@post.likes, 'like')}"%>
+    <%= form_for @post do |p| %>
+        <%= p.hidden_field :likes, :value=>@post.likes+=1%>
+        <%= p.submit "Like this Post" %>
+    <% end %><br>
+    
+</p>
+<p>
+    <%= link_to 'Back to Home Page', posts_path %>
+</p>
+
+
+
+

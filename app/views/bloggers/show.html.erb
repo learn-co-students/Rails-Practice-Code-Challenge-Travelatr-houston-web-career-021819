@@ -1,0 +1,19 @@
+<h1>Profile Page for <%=@blogger.name%></h1>
+<%if @blogger.posts != []%>
+    <h2>Featured Post:
+            <%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %> - <%=pluralize(@blogger.featured_post.likes, "like")%>
+    </h2>
+
+    <h2>Most Written Destinations:</h2>
+    <ul>
+            <%@blogger.most_written_destinations.each do |destination|%>
+                <li><%= link_to "#{destination.name}, #{destination.country}", destination_path(destination) %></li>
+            <%end%>
+    </ul>
+<%else%>
+    <h2><%="This blogger has no posts at the moment."%></h2>
+<%end%>
+
+<p>
+    <%= link_to 'Back to Home Page', posts_path %>
+</p>

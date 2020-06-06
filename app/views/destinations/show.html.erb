@@ -1,0 +1,16 @@
+<h1>Info Page for <%="#{@destination.name}, #{@destination.country}"%></h1>
+
+<h2>Recent Posts:</h2>
+<ul>
+    <%@destination.posts.last(5).reverse.each do |post|%>
+    <li> <%= link_to post.title, post_path(post) %> </li>
+    <%end%>
+</ul>
+
+<h3>Featured Post: <%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %> - <%=pluralize(@destination.featured_post.likes, 'like')%></h3>
+
+<h3>Average Blogger Age: <%=@destination.average_blogger_age%></h3>
+
+<p>
+    <%= link_to 'Back to Home Page', posts_path %>
+</p>

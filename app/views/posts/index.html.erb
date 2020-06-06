@@ -1,0 +1,14 @@
+<h1>Welcome to Travelatr!</h1>
+
+<h2>Most Recent Posts:</h2>
+<h3>
+    <ul>
+        <%@posts.last(10).reverse.each do |post|%>
+            <li> <%= link_to post.title, post_path(post) %> - <%=pluralize(post.likes, "like")%></li>
+        <%end%>
+    </ul>
+</h3>
+
+<h4> <%= link_to 'Create a New Post', new_post_path %> </h4>
+
+<h4><%= link_to 'Create a Blogger Profile', new_blogger_path %></h4>
